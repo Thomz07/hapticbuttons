@@ -1,8 +1,4 @@
-#import <AudioToolbox/AudioServices.h>
-
-@interface SBVolumeControl : NSObject
-- (float)_effectiveVolume;
-@end
+#include "Tweak.h"
 
 %group tweak
 %hook SBVolumeControl
@@ -10,20 +6,42 @@
 - (void)increaseVolume {
 
 	%orig;
-	if(self._effectiveVolume == 1){
-		AudioServicesPlaySystemSound(1521);
-	} else {
-		AudioServicesPlaySystemSound(1519);
+	preferencesChanged();
+	if(enabled){
+		if(self._effectiveVolume == 1 && biggerVibration){
+			AudioServicesPlaySystemSound(1521);
+		} else {
+			if(tapticStrength == 0){
+				AudioServicesPlaySystemSound(1519);
+			} else if(tapticStrength == 1){
+				AudioServicesPlaySystemSound(1520);
+			} else if(tapticStrength == 2){
+				AudioServicesPlaySystemSound(1521);
+			} else {
+				AudioServicesPlaySystemSound(1519);
+			}
+		}
 	}
 }
 
 - (void)decreaseVolume {
 
 	%orig;
-	if(self._effectiveVolume == 0){
-		AudioServicesPlaySystemSound(1521);
-	} else {
-		AudioServicesPlaySystemSound(1519);
+	preferencesChanged();
+	if(enabled){
+		if(self._effectiveVolume == 0 && biggerVibration){
+			AudioServicesPlaySystemSound(1521);
+		} else {
+			if(tapticStrength == 0){
+				AudioServicesPlaySystemSound(1519);
+			} else if(tapticStrength == 1){
+				AudioServicesPlaySystemSound(1520);
+			} else if(tapticStrength == 2){
+				AudioServicesPlaySystemSound(1521);
+			} else {
+				AudioServicesPlaySystemSound(1519);
+			}
+		}
 	}
 }
 
@@ -31,5 +49,6 @@
 %end
 
 %ctor {
+	preferencesChanged();
 	%init(tweak);
 }

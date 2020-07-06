@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.thomz.hapticbuttonsprefs</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Enable</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.thomz.hapticbuttonsprefs</string>
+			<key>key</key>
+			<string>biggerVibration</string>
+			<key>label</key>
+			<string>Stronger Haptic at 0%/100%</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Haptic Strength</string>
+		</dict>
+		<dict>
+            <key>cell</key>
+            <string>PSSegmentCell</string>
+            <key>defaults</key>
+            <string>com.thomz.hapticbuttonsprefs</string>
+            <key>default</key>
+            <string>0</string>
+            <key>key</key>
+            <string>tapticStrength</string>
+            <key>validValues</key>
+            <array>
+                <string>0</string>
+                <string>1</string>
+                <string>2</string>
+            </array>
+            <key>validTitles</key>
+            <array>
+            	<string>Light</string>
+                <string>Medium</string>
+                <string>Heavy</string>
+            </array>
+        </dict>
+	</array>
+	<key>title</key>
+	<string>Haptic Buttons</string>
+</dict>
+</plist>

@@ -11,3 +11,5 @@ HapticButtons_CFLAGS = -fobjc-arc
 HapticButtons_FRAMEWORKS = AudioToolbox
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += hapticbuttonsprefs
+include $(THEOS_MAKE_PATH)/aggregate.mk
