@@ -7,6 +7,8 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>headerCellClass</key>
+			<string>HapticButtonsHeaderCell</string>	
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -60,6 +62,22 @@
                 <string>Heavy</string>
             </array>
         </dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.thomz.hapticbuttonsprefs</string>
+			<key>key</key>
+			<string>legacyVibrationEnabled</string>
+			<key>label</key>
+			<string>Legacy Vibrations</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string>Haptic Buttons</string>

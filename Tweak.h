@@ -7,12 +7,34 @@
 BOOL enabled;
 BOOL biggerVibration;
 int tapticStrength;
+BOOL legacyVibrationEnabled;
 
 #define kIdentifier @"com.thomz.hapticbuttonsprefs"
 #define kSettingsChangedNotification (CFStringRef)@"com.thomz.hapticbuttonsprefs/reload"
 #define kSettingsPath @"/var/mobile/Library/Preferences/com.thomz.hapticbuttonsprefs.plist"
 
 NSDictionary *prefs;
+
+void AudioServicesPlaySystemSoundWithVibration(UInt32 inSystemSoundID,id arg,NSDictionary* vibratePattern);
+
+void vibrate(float durationInSeconds, float intensivity, long count) {
+
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    NSMutableArray* arr = [NSMutableArray array];
+    for (long i = count; i--;) {
+        [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate
+        [arr addObject:[NSNumber numberWithInt:durationInSeconds*1000]];
+
+        [arr addObject:[NSNumber numberWithBool:NO]];  //stop
+        [arr addObject:[NSNumber numberWithInt:durationInSeconds*1000]];
+    }
+
+    [dict setObject:arr forKey:@"VibePattern"];
+    [dict setObject:[NSNumber numberWithFloat:intensivity] forKey:@"Intensity"];
+
+    AudioServicesPlaySystemSoundWithVibration(4095,nil,dict);
+
+}
 
 static void reloadPrefs() {
     if ([NSHomeDirectory() isEqualToString:@"/var/mobile"]) {
@@ -46,4 +68,5 @@ static void preferencesChanged() {
     enabled = boolValueForKey(@"enabled", YES);
     biggerVibration = boolValueForKey(@"biggerVibration", YES);
     tapticStrength = [([prefs objectForKey:@"tapticStrength"] ?: @(0)) intValue];
+    legacyVibrationEnabled = boolValueForKey(@"legacyVibrationEnabled", NO);
 }

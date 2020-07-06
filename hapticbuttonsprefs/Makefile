@@ -5,7 +5,7 @@ BUNDLE_NAME = HapticButtonsPrefs
 HapticButtonsPrefs_FILES = HAPRootListController.m
 HapticButtonsPrefs_INSTALL_PATH = /Library/PreferenceBundles
 HapticButtonsPrefs_FRAMEWORKS = UIKit
-HapticButtonsPrefs_PRIVATE_FRAMEWORKS = Preferences
+HapticButtonsPrefs_PRIVATE_FRAMEWORKS = Preferences MPUFoundation
 HapticButtonsPrefs_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/bundle.mk

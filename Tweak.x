@@ -10,7 +10,7 @@
 	if(enabled){
 		if(self._effectiveVolume == 1 && biggerVibration){
 			AudioServicesPlaySystemSound(1521);
-		} else {
+		} else if(!legacyVibrationEnabled){
 			if(tapticStrength == 0){
 				AudioServicesPlaySystemSound(1519);
 			} else if(tapticStrength == 1){
@@ -20,6 +20,8 @@
 			} else {
 				AudioServicesPlaySystemSound(1519);
 			}
+		} else {
+			vibrate(0.025, 0.05, 1);
 		}
 	}
 }
@@ -31,7 +33,7 @@
 	if(enabled){
 		if(self._effectiveVolume == 0 && biggerVibration){
 			AudioServicesPlaySystemSound(1521);
-		} else {
+		} else if(!legacyVibrationEnabled){
 			if(tapticStrength == 0){
 				AudioServicesPlaySystemSound(1519);
 			} else if(tapticStrength == 1){
@@ -41,6 +43,8 @@
 			} else {
 				AudioServicesPlaySystemSound(1519);
 			}
+		} else {
+			vibrate(0.025, 0.05, 1);
 		}
 	}
 }
