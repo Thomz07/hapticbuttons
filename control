@@ -7,3 +7,4 @@ Description: Add haptic feedbacks to your volume buttons
 Maintainer: thomz
 Author: thomz
 Section: Tweaks
+Icon: file:///Library/PreferenceBundles/HapticButtonsPrefs.bundle/iconFullSize.png

@@ -10,6 +10,29 @@
 	return _specifiers;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[[UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]] setOnTintColor:[UIColor colorWithRed: 0.85 green: 0.27 blue: 0.33 alpha: 1.00]];
+	[[UISegmentedControl appearanceWhenContainedInInstancesOfClasses:@[self.class]] setTintColor:[UIColor colorWithRed: 0.85 green: 0.27 blue: 0.33 alpha: 1.00]];
+
+}
+
+-(void)openTwitterThomz:(id)sender {
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Thomzi07"]];
+}
+
+-(void)openDepiction:(id)sender {
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://repo.packix.com/package/com.thomz.hapticbuttons/"]];
+}
+
+-(void)openGithub:(id)sender {
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://github.com/Thomz07/hapticbuttons"]];
+}
+
+-(void)openTwitterLitten:(id)sender {
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Litteeen"]];
+}
+
 @end
 
 @implementation HapticButtonsHeaderCell 

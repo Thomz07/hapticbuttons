@@ -78,6 +78,52 @@
 			<key>label</key>
 			<string>Legacy Vibrations</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Credits</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>openTwitterThomz:</string>
+			<key>label</key>
+			<string>Thomz</string>
+			<key>icon</key>
+			<string>twitter</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>openDepiction:</string>
+			<key>label</key>
+			<string>Depiction</string>
+			<key>icon</key>
+			<string>packix</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>openGithub:</string>
+			<key>label</key>
+			<string>Github</string>
+			<key>icon</key>
+			<string>github</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>openTwitterLitten:</string>
+			<key>label</key>
+			<string>Litten (Rose, Best Haptic Tweak)</string>
+			<key>icon</key>
+			<string>twitter</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string>Haptic Buttons</string>
