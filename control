@@ -1,9 +1,9 @@
 Package: com.thomz.hapticbuttons
 Name: Haptic Buttons
 Depends: mobilesubstrate
-Version: 0.0.1
+Version: 1.0.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Add haptic feedbacks to your volume buttons
 Maintainer: thomz
 Author: thomz
 Section: Tweaks
