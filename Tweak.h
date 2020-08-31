@@ -2,6 +2,7 @@
 
 @interface SBVolumeControl : NSObject
 - (float)_effectiveVolume;
+@property (nonatomic, retain) UIImpactFeedbackGenerator *gen;
 @end
 
 BOOL enabled;

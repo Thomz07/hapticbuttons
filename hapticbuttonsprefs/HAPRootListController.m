@@ -17,6 +17,33 @@
 
 }
 
+-(void)viewDidLoad {
+	[super viewDidLoad];
+	UIBarButtonItem *applyButton = [[UIBarButtonItem alloc] initWithTitle:@"Respring" style:UIBarButtonItemStylePlain target:self action:@selector(respring:)];
+    self.navigationItem.rightBarButtonItem = applyButton;
+}
+
+-(void)respring:(id)sender {
+
+	UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Respring"
+							message:@"Are you sure you want to Respring ?"
+							preferredStyle:UIAlertControllerStyleActionSheet];
+
+		UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel
+		handler:^(UIAlertAction * action) {}];
+
+		UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Respring" style:UIAlertActionStyleDestructive
+		handler:^(UIAlertAction * action) {
+			NSTask *t = [[NSTask alloc] init];
+			[t setLaunchPath:@"usr/bin/sbreload"];
+			[t launch];
+		}];
+
+		[alert addAction:defaultAction];
+		[alert addAction:yes];
+		[self presentViewController:alert animated:YES completion:nil];
+}
+
 -(void)openTwitterThomz:(id)sender {
 	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Thomzi07"]];
 }
