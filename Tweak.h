@@ -9,6 +9,7 @@ BOOL enabled;
 BOOL biggerVibration;
 int tapticStrength;
 BOOL legacyVibrationEnabled;
+BOOL oneDotTwoMessageHasBeenShowed;
 
 #define kIdentifier @"com.thomz.hapticbuttonsprefs"
 #define kSettingsChangedNotification (CFStringRef)@"com.thomz.hapticbuttonsprefs/reload"
@@ -70,4 +71,5 @@ static void preferencesChanged() {
     biggerVibration = boolValueForKey(@"biggerVibration", YES);
     tapticStrength = [([prefs objectForKey:@"tapticStrength"] ?: @(0)) intValue];
     legacyVibrationEnabled = boolValueForKey(@"legacyVibrationEnabled", NO);
+    oneDotTwoMessageHasBeenShowed = boolValueForKey(@"oneDotTwoMessageHasBeenShowed", NO);
 }

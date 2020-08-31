@@ -4,6 +4,7 @@
 #import <Preferences/PSListItemsController.h>
 
 @interface HAPRootListController : PSListController
+-(void)setObjectInPreset:(id)value forKey:(NSString *)key;
 @end
 
 @interface HapticButtonsHeaderCell : PSTableCell 
@@ -31,4 +32,9 @@
 - (id)init;
 - (void)waitUntilExit;
 - (void)launch;
+@end
+
+@interface NSUserDefaults (Multipla)
+-(id)objectForKey:(NSString *)key inDomain:(NSString *)domain;
+-(void)setObject:(id)value forKey:(NSString *)key inDomain:(NSString *)domain;
 @end

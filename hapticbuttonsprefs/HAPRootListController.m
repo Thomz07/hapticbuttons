@@ -1,5 +1,8 @@
 #include "HAPRootListController.h"
 
+NSDictionary *prefs;
+NSString *domain = @"/var/mobile/Library/Preferences/com.thomz.hapticbuttonsprefs.plist";
+
 @implementation HAPRootListController
 
 - (NSArray *)specifiers {
@@ -21,6 +24,28 @@
 	[super viewDidLoad];
 	UIBarButtonItem *applyButton = [[UIBarButtonItem alloc] initWithTitle:@"Respring" style:UIBarButtonItemStylePlain target:self action:@selector(respring:)];
     self.navigationItem.rightBarButtonItem = applyButton;
+
+	prefs = [[NSUserDefaults standardUserDefaults]persistentDomainForName:@"com.thomz.hapticbuttonsprefs"];
+
+	BOOL oneDotTwoMessageHasBeenShowed = [[prefs objectForKey:@"oneDotTwoMessageHasBeenShowed"] boolValue];
+
+	if(!oneDotTwoMessageHasBeenShowed){
+		UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Hey User"
+							message:@"Sorry for the battery drain that Haptic Buttons used to cause. I fixed it in this version, I used to do a really stupid thing in my code that made the code check for preferences everytime you press a volume button :/ \nYou (sadly) now need to respring to apply your changes."
+							preferredStyle:UIAlertControllerStyleAlert];
+
+		UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel
+		handler:^(UIAlertAction * action) {
+			[self setObjectInPreset:@YES forKey:@"oneDotTwoMessageHasBeenShowed"];
+		}];
+
+		[alert addAction:defaultAction];
+		[self presentViewController:alert animated:YES completion:nil];
+	}
+}
+
+-(void)setObjectInPreset:(id)value forKey:(NSString *)key {
+	[[NSUserDefaults standardUserDefaults] setObject:value forKey:key inDomain:domain]; //literally useless except to make the following method look neater
 }
 
 -(void)respring:(id)sender {
@@ -45,19 +70,19 @@
 }
 
 -(void)openTwitterThomz:(id)sender {
-	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Thomzi07"]];
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Thomzi07"] options:@{} completionHandler:^(BOOL success){}];
 }
 
 -(void)openDepiction:(id)sender {
-	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://repo.packix.com/package/com.thomz.hapticbuttons/"]];
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://repo.packix.com/package/com.thomz.hapticbuttons/"] options:@{} completionHandler:^(BOOL success){}];
 }
 
 -(void)openGithub:(id)sender {
-	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://github.com/Thomz07/hapticbuttons"]];
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://github.com/Thomz07/hapticbuttons"] options:@{} completionHandler:^(BOOL success){}];
 }
 
 -(void)openTwitterLitten:(id)sender {
-	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Litteeen"]];
+	[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Litteeen"] options:@{} completionHandler:^(BOOL success){}];
 }
 
 @end
