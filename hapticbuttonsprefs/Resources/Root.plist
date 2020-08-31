@@ -54,12 +54,16 @@
                 <string>0</string>
                 <string>1</string>
                 <string>2</string>
+				<string>3</string>
+				<string>4</string>
             </array>
             <key>validTitles</key>
             <array>
-            	<string>Light</string>
+            	<string>Soft</string>
+                <string>Light</string>
                 <string>Medium</string>
-                <string>Heavy</string>
+				<string>Heavy</string>
+				<string>Rigid</string>
             </array>
         </dict>
 		<dict>

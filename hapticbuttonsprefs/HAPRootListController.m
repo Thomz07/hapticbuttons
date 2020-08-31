@@ -50,7 +50,8 @@
 	icon.layer.masksToBounds = YES;
 	icon.layer.cornerRadius = 15;
 
-	MPUMarqueeView *tweakLabelMarquee = [[MPUMarqueeView alloc] initWithFrame:CGRectMake(22.5,32.5,icon.frame.origin.x-25,50)];
+	MPUMarqueeView *tweakLabelMarquee = [[MPUMarqueeView alloc] initWithFrame:CGRectMake(12.5,32.5,icon.frame.origin.x-25,50)];
+	[tweakLabelMarquee setFadeEdgeInsets:UIEdgeInsetsMake(0,10,0,10)];
     
     UILabel *tweakLabel = [[UILabel alloc] init];
 	[tweakLabel setTextAlignment:NSTextAlignmentLeft];

@@ -7,19 +7,26 @@
 
 	%orig;
 	preferencesChanged();
+	UIImpactFeedbackGenerator *gen = [[UIImpactFeedbackGenerator alloc] init];
+	[gen prepare];
+
 	if(enabled){
 		if(self._effectiveVolume == 1 && biggerVibration){
-			AudioServicesPlaySystemSound(1521);
+			gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+			[gen impactOccurred];
 		} else if(!legacyVibrationEnabled){
-			if(tapticStrength == 0){
-				AudioServicesPlaySystemSound(1519);
-			} else if(tapticStrength == 1){
-				AudioServicesPlaySystemSound(1520);
-			} else if(tapticStrength == 2){
-				AudioServicesPlaySystemSound(1521);
-			} else {
-				AudioServicesPlaySystemSound(1519);
-			}
+			if (tapticStrength == 0)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleSoft];
+			else if (tapticStrength == 1)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+			else if (tapticStrength == 2)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+			else if (tapticStrength == 3)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+			else if (tapticStrength == 4)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleRigid];
+
+			[gen impactOccurred];
 		} else {
 			vibrate(0.025, 0.05, 1);
 		}
@@ -30,19 +37,26 @@
 
 	%orig;
 	preferencesChanged();
+	UIImpactFeedbackGenerator *gen = [[UIImpactFeedbackGenerator alloc] init];
+	[gen prepare];
+
 	if(enabled){
-		if(self._effectiveVolume == 0 && biggerVibration){
-			AudioServicesPlaySystemSound(1521);
+		if(self._effectiveVolume == 1 && biggerVibration){
+			gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+			[gen impactOccurred];
 		} else if(!legacyVibrationEnabled){
-			if(tapticStrength == 0){
-				AudioServicesPlaySystemSound(1519);
-			} else if(tapticStrength == 1){
-				AudioServicesPlaySystemSound(1520);
-			} else if(tapticStrength == 2){
-				AudioServicesPlaySystemSound(1521);
-			} else {
-				AudioServicesPlaySystemSound(1519);
-			}
+			if (tapticStrength == 0)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleSoft];
+			else if (tapticStrength == 1)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+			else if (tapticStrength == 2)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+			else if (tapticStrength == 3)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+			else if (tapticStrength == 4)
+				gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleRigid];
+
+			[gen impactOccurred];
 		} else {
 			vibrate(0.025, 0.05, 1);
 		}

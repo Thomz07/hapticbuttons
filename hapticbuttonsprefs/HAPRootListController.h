@@ -19,6 +19,7 @@
 @property (nonatomic, assign) CGFloat contentGap;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, assign) CGSize contentSize;
+-(void)setFadeEdgeInsets:(UIEdgeInsets)arg1;
 @end
 
 @interface _MPUMarqueeContentView : UIView
