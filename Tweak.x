@@ -7,7 +7,7 @@
 - (void)increaseVolume {
 
 	%orig;
-	if(self.gen){
+	if(!self.gen){
 		self.gen = [[UIImpactFeedbackGenerator alloc] init]; // prevent gen to be allocated every time you press a button
 	}
 	[self.gen prepare];
@@ -36,7 +36,7 @@
 - (void)decreaseVolume {
 
 	%orig;
-	if(self.gen){
+	if(!self.gen){
 		self.gen = [[UIImpactFeedbackGenerator alloc] init]; // prevent gen to be allocated every time you press a button
 	}
 	[self.gen prepare];
